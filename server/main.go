@@ -26,9 +26,14 @@ func Init() {
 	e.Static("/static", "app/src")
 	e.Renderer = NewTemplate()
 	e.GET("/", mainHandler)
+	e.GET("/", runHandler)
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
 func mainHandler(c echo.Context) error {
 	return c.Render(200, "index", nil)
+}
+
+func runHandler(c echo.Context) error {
+	return c.Render(200, "Run", nil)
 }
