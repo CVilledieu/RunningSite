@@ -7,16 +7,20 @@
     <title>NotStrava</title>
 </head>
 <body>
-    <div id="root">
-        {{template "run" .}}
-    <script src="/static/main.js"></script>
-    </div>
+    {{template "app"}}
 </body>
 </html>
 {{end}}
 
-{{define "run"}}
+{{define "app"}}
+<div id="root">
+        {{template "header"}}
+        {{template "hud"}}
+</div>
+{{end}}
 
-
-
+{{define "hud"}}
+<div id="hud">
+    {{template "runTray"}}
+</div>
 {{end}}

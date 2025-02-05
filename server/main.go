@@ -17,16 +17,16 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 
 func NewTemplate() *Template {
 	return &Template{
-		templates: template.Must(template.ParseGlob("app/views/*.html")),
+		templates: template.Must(template.ParseGlob("app/views/*/*.html")),
 	}
 }
 
 func Init() {
 	e := echo.New()
-	e.Static("/static", "app/src")
+	e.Static("/static", "app")
 	e.Renderer = NewTemplate()
 	e.GET("/", mainHandler)
-	e.GET("/", runHandler)
+	e.GET("/run", runHandler)
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
