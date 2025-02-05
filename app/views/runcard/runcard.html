@@ -1,7 +1,9 @@
 {{define "runTray"}}
     <link rel="stylesheet" href="/static/views/runcard/runcard.css">
     <div id="runTray">
-        {{template "runCard"}}
+        {{range .}}
+            {{template "runCard" .}}
+        {{end}}
     </div>
 {{end}}
 
@@ -11,8 +13,8 @@
             
         </div>
         <div class="card_content">
-            <label class="run_title">Name goes here</label>
-            <label class="run_details">Other details</label>
+            <label class="run_title">{{.Name}}</label>
+            <label class="run_details">{{.Details}}</label>
         </div>
     </div>
 {{end}}

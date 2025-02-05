@@ -7,7 +7,9 @@
     <title>NotStrava</title>
 </head>
 <body>
+    <link rel="stylesheet" href="/static/views/index/index.css">
     {{template "app"}}
+
 </body>
 </html>
 {{end}}
@@ -21,6 +23,7 @@
 
 {{define "hud"}}
 <div id="hud">
+    {{template "display"}}
     {{template "runTray"}}
 </div>
 {{end}}

@@ -1,6 +1,7 @@
 package server
 
 import (
+	hands "RunShare/server/handlers"
 	"html/template"
 	"io"
 
@@ -25,15 +26,14 @@ func Init() {
 	e := echo.New()
 	e.Static("/static", "app")
 	e.Renderer = NewTemplate()
+
 	e.GET("/", mainHandler)
-	e.GET("/run", runHandler)
+	e.GET("/run", hands.RunHandler)
+	e.PUT("/run/:id")
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
 func mainHandler(c echo.Context) error {
 	return c.Render(200, "index", nil)
-}
-
-func runHandler(c echo.Context) error {
-	return c.Render(200, "Run", nil)
 }
