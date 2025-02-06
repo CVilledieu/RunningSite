@@ -29,7 +29,7 @@ func Init() {
 
 	e.GET("/", mainHandler)
 	e.GET("/run", hands.RunHandler)
-	e.PUT("/run/:id")
+	e.POST("/run/:id", hands.GetRunById)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }

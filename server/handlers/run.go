@@ -24,15 +24,22 @@ func RunHandler(c echo.Context) error {
 	return c.Render(200, "Run", nil)
 }
 
-func NewRuns(c echo.Context) error {
+func GetRunById(c echo.Context) error {
 	r := new(Run)
 	if err := c.Bind(r); err != nil {
 		return c.String(http.StatusBadRequest, "bad request")
 	}
-	run := Run{
-		Name:     r.Name,
-		Details:  r.Details,
-		Distance: r.Distance,
-	}
+	/*
+		run := Run{
+			Name:     r.Name,
+			Details:  r.Details,
+			Distance: r.Distance,
+		}
+	*/
 	return c.JSON(http.StatusAccepted, r)
+}
+
+// Pulls an array of runs to load into run tray
+func GetArrayOfRuns() []Run {
+
 }

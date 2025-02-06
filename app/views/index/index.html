@@ -8,7 +8,7 @@
 </head>
 <body>
     <link rel="stylesheet" href="/static/views/index/index.css">
-    {{template "app"}}
+    {{template "app" .}}
 
 </body>
 </html>
@@ -17,13 +17,13 @@
 {{define "app"}}
 <div id="root">
         {{template "header"}}
-        {{template "hud"}}
+        {{template "hud" .}}
 </div>
 {{end}}
 
 {{define "hud"}}
 <div id="hud">
     {{template "display"}}
-    {{template "runTray"}}
+    {{template "runTray" . }}
 </div>
 {{end}}
